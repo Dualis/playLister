@@ -1,0 +1,28 @@
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Make your playlists available for everyone, everywhere.</h1>
+        <p>Choose a playlist file below to begin</p>
+        <p></p>
+        <p>
+
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+      <div class="container">
+        <form action="submitPlaylist" method="post" class="form-playlist" enctype="multipart/form-data">
+        <h2 class="form-playlist-heading">Choose a playlist file</h2>
+        <label for="inputFile" class="sr-only">File to be processed</label>
+        <input type="file" name="inputFile" id="playList" class="form-control" placeholder="No File chosen">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+      </form>
+ </div> <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
+</html>

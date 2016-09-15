@@ -1,5 +1,5 @@
 {
-  "name": "playLister",
+  "name": "playlister",
   "version": "0.0.1",
   "description": "Website for MSA",
   "contributors": [
@@ -23,6 +23,7 @@
     "grunt-concurrent": "^2.3.1",
     "grunt-nodemon": "^0.4.2",
     "grunt-typescript": "^0.8.0",
+    "multer":"1.2.0",
     "nodemon": "^1.10.2",
     "tsd": "~0.5.7",
     "typescript": "~1.0.1"
@@ -33,8 +34,8 @@
   },
   "engines": {
     "node": "4.5.0 || 4.x.x"
-  }
+  },
     "scripts": {
     "start": "node ./server.js"
-  },
+  }
 }

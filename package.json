@@ -9,7 +9,6 @@
     }
   ],
   "license": "MIT",
-  "main": "server.js",
   "keywords": [
     "TypeScript",
     "MSA"
@@ -29,11 +28,10 @@
     "typescript": "~1.0.1"
   },
   "dependencies": {
+    "body-parser": "~1.15.2",
+    "bootstrap": "3.3.7",
     "express": "^4.14.0",
     "multer": "^1.2.0"
-  },
-  "engines": {
-    "node": "4.5.0 || 4.x.x"
   },
     "scripts": {
     "start": "node ./server.js"

@@ -44,8 +44,9 @@ app.post('/submitPlaylist', upload.single('inputFile'), function (req, res, next
         processM3u(titles);
     cleanTitles(titles);
     cullTitles(titles);
-    var filepath = path.join(__dirname, 'header.html');
-    fs.readFile(filepath, 'utf8', function (err, data) {
+
+        var filepathHead = path.join(__dirname, 'header.html');
+    fs.readFile(filepathHead, 'utf8', function (err, data) {
         if (!res.headersSent) {
             res.writeHead(200, {
                 'Content-Type': 'text/html'
@@ -54,6 +55,7 @@ app.post('/submitPlaylist', upload.single('inputFile'), function (req, res, next
         if (!res.finished)
             res.write(data);
     });
+    
     var filepath = path.join(__dirname, 'edit.html');
     fs.readFile(filepath, 'utf8', function (err, data) {
         res.write("<div class=\"container\">\n<div class=\"jumbotron\">\n");
@@ -111,16 +113,7 @@ function processM3u(titles) {
 }
 
 function writePageHeader(res) {
-    var filepath = path.join(__dirname, 'header.html');
-    fs.readFile(filepath, 'utf8', function (err, data) {
-        if (!res.headersSent) {
-            res.writeHead(200, {
-                'Content-Type': 'text/html'
-            });
-        }
-        if (!res.finished)
-            res.write(data);
-    });
+
 }
 //Code from npm:express-generator
 // catch 404 and forward to error handler

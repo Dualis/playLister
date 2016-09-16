@@ -33,9 +33,6 @@
 "bootstrap": "3.3.7",
 "express": "^4.14.0",
 "multer": "^1.2.0"
-},
-"scripts": {
-"start": "node ./dist/server.js"
 }
 }
 

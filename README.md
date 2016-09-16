@@ -1,1 +1,1 @@
-testing interface and deployment
+A node.js app that allows users to convert local playlists to Youtube ones.

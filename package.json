@@ -1,20 +1,41 @@
 {
-  "name": "NodejsWebApp1",
-  "private": true,
-  "version": "0.0.0",
-  "description": "NodejsWebApp1",
-  "main": "server.js",
-  "author": {
-    "name": "ctsodev1",
-    "email": ""
-  },
-  "dependencies": {
-    "express": "^4.13.3",
-	"multer": "1.2.0"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-zip": "^3.0.2",
-    "minimist": "^1.2.0"
-  }
+"name": "playlister",
+"version": "0.0.2",
+"description": "Website for MSA",
+"main": "server.js",
+"contributors": [
+{
+"name": "Jonathan James William Miller",
+"email": "millerjona1@myvuw.ac.nz"
 }
+],
+"license": "MIT",
+"keywords": [
+"TypeScript",
+"MSA"
+],
+"devDependencies": {
+"body-parser": "~1.15.2",
+"bootstrap": "3.3.7",
+"concurrent": "^0.3.2",
+"express": "~4.14.0",
+"grunt": "^0.4.5",
+"grunt-concurrent": "^2.3.1",
+"grunt-nodemon": "^0.4.2",
+"grunt-typescript": "^0.8.0",
+"multer":"1.2.0",
+"nodemon": "^1.10.2",
+"tsd": "~0.5.7",
+"typescript": "~1.0.1"
+},
+"dependencies": {
+"body-parser": "~1.15.2",
+"bootstrap": "3.3.7",
+"express": "^4.14.0",
+"multer": "^1.2.0"
+},
+"scripts": {
+"start": "node ./dist/server.js"
+}
+}
+

@@ -1,4 +1,5 @@
 /// <reference path="typings/node/node.d.ts" />
+"use strict";
 var express = require('express');
 var multer = require('multer');
 var fs = require('fs');
@@ -47,7 +48,15 @@ app.post('/submitPlaylist', upload.single('inputFile'), function (req, res, next
         processM3u(titles);
     cleanTitles(titles);
     cullTitles(titles);
-    writePageHeader(res);
+    fs.readFile('header.html', 'utf8', function (err, data) {
+        if (!res.headersSent) {
+            res.writeHead(200, {
+                'Content-Type': 'text/html'
+            });
+        }
+        if (!res.finished)
+            res.write(data);
+    });
     fs.readFile('edit.html', 'utf8', function (err, data) {
         res.write("<div class=\"container\">\n<div class=\"jumbotron\">\n");
         //Writes the text box that contains the title
@@ -115,4 +124,31 @@ function writePageHeader(res) {
             res.write(data);
     });
 }
-//# sourceMappingURL=server.js.map
+//Code from npm:express-generator
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+// error handlers
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function (err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+// production error handler
+// no stacktraces leaked to user
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});

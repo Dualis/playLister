@@ -45,7 +45,7 @@ app.post('/submitPlaylist', upload.single('inputFile'), function (req, res, next
     cleanTitles(titles);
     cullTitles(titles);
 
-  
+    writePageHeader();
     
     var filepath = path.join(__dirname, 'edit.html');
     fs.readFile(filepath, 'utf8', function (err, data) {

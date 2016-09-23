@@ -28,10 +28,7 @@ function buildPlaylist(listId, names) {
     for (i = 0; i < 200; ++i) {
         if (i >= names.length)
             break;
-       addVideoByName(names[i], listId);
-       //console.log(i);
-       var j;
-       //for(j=0; j<10000000;++j){};
+        window.setTimeout(addVideoByName(names[i], listId), 500 * i);
     }
     //console.log('added '+i+'elems to playlist '+listId);
 }
@@ -69,7 +66,7 @@ function createPlaylist() {
         }
         complete = true;
     });
-    return success;
+    document.getElementById("p1").innerHTML = "https://www.youtube.com/playlist?list=" + playlistId;
 }
 // Add a video ID specified in the form to the playlist.
 function addVideoByName(name, listId) {
@@ -95,7 +92,6 @@ function chooseFromResults(res) {
 }
 // Add a video to a playlist.
 function addToPlaylist(listId, vidId) {
-
     var request = gapi.client.youtube.playlistItems.insert({
         part: 'snippet',
         resource: {
@@ -109,6 +105,6 @@ function addToPlaylist(listId, vidId) {
         }
     });
     request.execute(function (response) {
-        console.log("added: "+vidId);
+        console.log(JSON.stringify(response));
     });
 }

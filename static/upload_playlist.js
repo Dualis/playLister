@@ -66,7 +66,7 @@ function createPlaylist() {
         }
         complete = true;
     });
-    document.getElementById("p1").innerHTML = "https://www.youtube.com/playlist?list=" + playlistId;
+    document.getElementById("notify").innerHTML = "https://www.youtube.com/playlist?list=" + playlistId;
 }
 // Add a video ID specified in the form to the playlist.
 function addVideoByName(name, listId) {

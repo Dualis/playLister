@@ -72,7 +72,7 @@ success = false;
 complete = true;
 });
 
-document.getElementById("p1").innerHTML = "https://www.youtube.com/playlist?list="+playlistId;
+document.getElementById("notify").innerHTML = "https://www.youtube.com/playlist?list="+playlistId;
 }
 
 

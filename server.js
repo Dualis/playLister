@@ -114,6 +114,8 @@ function writePageHeader(res) {
         if (!res.finished)
             res.write(data);
     });
+    var waiting;
+    while(!res.headersSent){waiting++;}
 }
 //Code from npm:express-generator
 // catch 404 and forward to error handler

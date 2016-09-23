@@ -28,7 +28,7 @@ function buildPlaylist(listId, names) {
     for (i = 0; i < 200; ++i) {
         if (i >= names.length)
             break;
-        window.setTimeout(addVideoByName(names[i], listId), 500 * i);
+        addVideoByName(names[i], listId);
     }
     //console.log('added '+i+'elems to playlist '+listId);
 }
@@ -58,6 +58,7 @@ function createPlaylist() {
             console.log('created playlist ' + result.id);
             success = true;
             buildPlaylist(playlistId, playlistNames);
+            document.getElementById("notify").innerHTML = "https://www.youtube.com/playlist?list=" + playlistId;
             window.open("https://www.youtube.com/playlist?list=" + playlistId);
         }
         else {
@@ -66,7 +67,6 @@ function createPlaylist() {
         }
         complete = true;
     });
-    document.getElementById("notify").innerHTML = "https://www.youtube.com/playlist?list=" + playlistId;
 }
 // Add a video ID specified in the form to the playlist.
 function addVideoByName(name, listId) {

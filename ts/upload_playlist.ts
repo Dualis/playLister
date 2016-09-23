@@ -3,7 +3,7 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
 
 // Define some variables used to remember state.
-var playlistId:Array<any>, playlistNames:Array<string>, channelId;
+var playlistId:string, playlistNames:Array<string>, channelId;
 var searchResults:Array<any>;
 // After the API loads, call a function to enable the playlist creation button.
 function handleAPILoaded() {
@@ -33,7 +33,7 @@ function buildPlaylist(listId:any, names:Array<string>){
 var i:number;
 for(i = 0; i < 200; ++i){
     if(i >= names.length)break;
-    window.setTimeout(addVideoByName(names[i], listId), 500*i);
+    addVideoByName(names[i], listId);
 }
 //console.log('added '+i+'elems to playlist '+listId);
 }
@@ -64,6 +64,7 @@ playlistId = result.id;
 console.log('created playlist ' + result.id);
 success = true;
 buildPlaylist(playlistId, playlistNames);
+document.getElementById("notify").innerHTML = "https://www.youtube.com/playlist?list="+playlistId;
 window.open("https://www.youtube.com/playlist?list="+playlistId);
 } else {
 console.log(JSON.stringify(result));
@@ -72,7 +73,7 @@ success = false;
 complete = true;
 });
 
-document.getElementById("notify").innerHTML = "https://www.youtube.com/playlist?list="+playlistId;
+
 }
 
 

@@ -45,7 +45,16 @@ app.post('/submitPlaylist', upload.single('inputFile'), function (req, res, next
     cleanTitles(titles);
     cullTitles(titles);
 
-    writePageHeader();
+      var filepathHead = path.join(__dirname, 'header.html');
+    fs.readFile(filepathHead, 'utf8', function (err, data) {
+        if (!res.headersSent) {
+            res.writeHead(200, {
+                'Content-Type': 'text/html'
+            });
+        }
+        if (!res.finished)
+            res.write(data);
+    });
     
     var filepath = path.join(__dirname, 'edit.html');
     fs.readFile(filepath, 'utf8', function (err, data) {
